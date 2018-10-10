@@ -5,21 +5,26 @@
 {% block content %}
 <br>
 
+<div class="jumbotron">
 
-
-<div class="row">
+<div class="card-columns p-3">
 
   {% for destination in destinations %}
 
-<div class="card bg-dark text-white col-6  d-flex align-item-stretch">
-  <img class="card-img img-fluid" src="{{destination.pretty_picture.url}}" >
-  <div class="card-img-overlay">
-    <h5 class="card-title">{{destination.name}}</h5>
-    <p class="card-text">{{destination.activities}}</p>
-    <p href="{% url 'destination-detail' destination.id %}">Last updated 3 mins ago</p>
+	<div class="card  bg-dark text-white border-0  m-2" >
+    <img class="card-img " src="{{destination.pretty_picture.url}}" style="opacity: .5">
+    <div class="d-flex align-item-stretch ">
+    <div class="card-img-overlay container p-3">
+    	
+      <h5 class="card-title">{{destination.name}}</h5>
+      <p class="card-text">T{{destination.activities}}</p>
+      <a href="{% url 'destination-detail' destination.id %}"><button class="btn btn-secondary">Read more...</button></a>
+      </div>
+    </div>
   </div>
-</div>
+
 
   {% endfor %}
+</div>
 </div>
 {% endblock content %}

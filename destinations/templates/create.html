@@ -4,9 +4,13 @@
 {% block title %}Create{% endblock title %}
 
 {% block content %}
-<form action="{% url 'destination-create' %}" method="POST" enctype="multipart/form-data">
+	
+<form class=" card w-auto" action="{% url 'destination-create' %}" method="POST" enctype="multipart/form-data">
+	<div class="card-body">
   {% csrf_token %}
   {{form | crispy}}
-  <input type="submit" value="Create">
+  <input class="btn btn-secondary" type="submit" value="Create">
+  </div>
 </form>
+
 {% endblock content %}
